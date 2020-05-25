@@ -1,6 +1,21 @@
+"----------------
+" Remap <ESC> to jk 
+"----------------
 inoremap jk <ESC>
+
+"-----------------
+" Fix solar WSL -fill red Problem
+"-----------------
 set t_ut=""
 set nocompatible " not vi compatible
+
+"------------------
+" send cursor to <nop> - use hjkl 
+"------------------
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 "------------------
 " Syntax and indent
@@ -147,11 +162,6 @@ nnoremap <Leader>u :GundoToggle<CR>
 if has('python3')
     let g:gundo_prefer_python3 = 1
 endif
-
-" ctrlp
-nnoremap ; :CtrlPBuffer<CR>
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_show_hidden = 1
 
 " ag / ack.vim
 command -nargs=+ Gag Gcd | Ack! <args>
