@@ -1,0 +1,10 @@
+[user]
+	        name = rpri265
+	        email = johann.siegele@arz.at
+
+[credential]
+	        username = rpri265
+	        helper = cache --timeout 3600
+
+[http "https://github.com"]
+	proxy = http://igwng.m086:3128
