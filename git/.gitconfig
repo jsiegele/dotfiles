@@ -1,3 +1,5 @@
+[includeIf "gitdir:~/dotfiles/"]
+        path = .gitconfig-github
 [user]
 	        name = rpri265
 	        email = johann.siegele@arz.at
@@ -9,5 +11,3 @@
 [http "https://github.com"]
     proxy = http://igwng.m086:3128
 
-[includeIf "gitdir:~/dotfiles/"]
-        path = .gitconfig-github
