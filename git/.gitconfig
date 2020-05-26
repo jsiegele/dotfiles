@@ -7,4 +7,7 @@
 	        helper = cache --timeout 3600
 
 [http "https://github.com"]
-	proxy = http://igwng.m086:3128
+    proxy = http://igwng.m086:3128
+
+[includeIf "gitdir:~/dotfiles/"]
+        path = .gitconfig-github
