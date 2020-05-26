@@ -1,0 +1,10 @@
+[user]
+	        name = jsiegele
+	        email = johann.siegele@gmail.com
+
+[credential]
+	        username = jsiegele
+	        helper = cache --timeout 3600
+
+[http "https://github.com"]
+	proxy = http://igwng.m086:3128
