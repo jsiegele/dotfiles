@@ -56,15 +56,15 @@ let g:currentmode={
       \}
 
 set statusline=
-set statusline+=%#DiffAdd#
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
-set statusline+=%#DiffText#
+set statusline+=%#PmenuSel#
+set statusline+=%{toupper(g:currentmode[mode()])}   " Current mode
+set statusline+=%#PmenuThumb#
 set statusline+=\ %M
 set statusline+=\ %y 
 set statusline+=\ %r 
 set statusline+=\ %F
 set statusline+=%= "Right side settings
-set statusline+=%#DiffChange#
+set statusline+=%#PmenuSel#
 set statusline+=\ %c:%l/%L
 set statusline+=\ %p%%
 set statusline+=\ [%n]
