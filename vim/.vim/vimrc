@@ -29,6 +29,46 @@ noremap <Right> <Nop>
 set path=$PWD/**        " enable fuzzy finding in the vim command line
 set wildmenu            " enable fuzzy menu
 
+
+"------------------
+" edit statusline
+"------------------
+let g:currentmode={
+      \ 'n'  : 'Normal ',
+      \ 'no' : 'N·Operator Pending ',
+      \ 'v'  : 'Visual ',
+      \ 'V'  : 'V·Line ',
+      \ 'x22' : 'V·Block ',
+      \ 's'  : 'Select ',
+      \ 'S'  : 'S·Line ',
+      \ 'x19' : 'S·Block ',
+      \ 'i'  : 'Insert ',
+      \ 'R'  : 'R ',
+      \ 'Rv' : 'V·Replace ',
+      \ 'c'  : 'Command ',
+      \ 'cv' : 'Vim Ex ',
+      \ 'ce' : 'Ex ',
+      \ 'r'  : 'Prompt ',
+      \ 'rm' : 'More ',
+      \ 'r?' : 'Confirm ',
+      \ '!'  : 'Shell ',
+      \ 't'  : 'Terminal '
+      \}
+
+set statusline=
+set statusline+=%#DiffAdd#
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
+set statusline+=%#DiffText#
+set statusline+=\ %M
+set statusline+=\ %y 
+set statusline+=\ %r 
+set statusline+=\ %F
+set statusline+=%= "Right side settings
+set statusline+=%#DiffChange#
+set statusline+=\ %c:%l/%L
+set statusline+=\ %p%%
+set statusline+=\ [%n]
+
 "------------------
 " Syntax and indent
 "------------------
