@@ -24,6 +24,12 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "------------------
+" fuzz mode
+"------------------
+set path=$PWD/**        " enable fuzzy finding in the vim command line
+set wildmenu            " enable fuzzy menu
+
+"------------------
 " Syntax and indent
 "------------------
 syntax on " turn on syntax highlighting
