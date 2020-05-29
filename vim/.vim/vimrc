@@ -3,6 +3,23 @@
 "----------------
 inoremap jk <ESC>
 
+"------------------
+" addon vim-plug
+"------------------
+call plug#begin()
+  Plug 'itchyny/lightline.vim'
+  Plug 'mhinz/vim-startify'
+  Plug 'lifepillar/vim-solarized8'
+call plug#end()
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \ },
+      \ 'component': {
+      \   'lineinfo': "%c:%{line('.') . '/' . line('$')}",
+      \ },
+      \ }
 "-----------------
 " Fix solar WSL -fill red Problem
 "-----------------
@@ -29,46 +46,6 @@ noremap <Right> <Nop>
 set path=$PWD/**        " enable fuzzy finding in the vim command line
 set wildmenu            " enable fuzzy menu
 
-
-"------------------
-" edit statusline
-"------------------
-let g:currentmode={
-      \ 'n'  : 'Normal ',
-      \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'Visual ',
-      \ 'V'  : 'V·Line ',
-      \ 'x22' : 'V·Block ',
-      \ 's'  : 'Select ',
-      \ 'S'  : 'S·Line ',
-      \ 'x19' : 'S·Block ',
-      \ 'i'  : 'Insert ',
-      \ 'R'  : 'R ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
-      \ 'cv' : 'Vim Ex ',
-      \ 'ce' : 'Ex ',
-      \ 'r'  : 'Prompt ',
-      \ 'rm' : 'More ',
-      \ 'r?' : 'Confirm ',
-      \ '!'  : 'Shell ',
-      \ 't'  : 'Terminal '
-      \}
-
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{toupper(g:currentmode[mode()])}   " Current mode
-set statusline+=%#PmenuThumb#
-set statusline+=\ %M
-set statusline+=\ %y 
-set statusline+=\ %r 
-set statusline+=\ %F
-set statusline+=%= "Right side settings
-set statusline+=%#PmenuSel#
-set statusline+=\ %c:%l/%L
-set statusline+=\ %p%%
-set statusline+=\ [%n]
-
 "------------------
 " Syntax and indent
 "------------------
@@ -86,20 +63,18 @@ augroup END
 " but it can be set to force 256 colors
 " set t_Co=256
 if has('gui_running')
-    colorscheme solarized
-    let g:lightline = {'colorscheme': 'solarized'}
+    colorscheme solarized8_high
 elseif &t_Co < 256
     colorscheme default
     set nocursorline " looks bad in this mode
 else
     set background=dark
     let g:solarized_termcolors=256 " instead of 16 color with mapping in terminal
-    colorscheme solarized
+    colorscheme solarized8_high
     " customized colors
     highlight SignColumn ctermbg=234
     highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
     highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
-    let g:lightline = {'colorscheme': 'dark'}
     highlight SpellBad cterm=underline
     " patches
     highlight CursorLineNr cterm=NONE
@@ -283,3 +258,4 @@ let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
+
