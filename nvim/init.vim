@@ -30,6 +30,14 @@ let g:lightline = {
 "------------------
 let g:rainbow_active = 1
 
+
+"------------------
+" startify - Settings
+"------------------
+let g:startify_bookmarks =[
+ \'~/AppData/Local/nvim/init.vim'
+ \]
+
 "------------------
 " explorer settings
 "------------------
