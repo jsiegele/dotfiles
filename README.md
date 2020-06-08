@@ -15,6 +15,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 
 ## powerline
+powerline-go \
+https://github.com/justjanne/powerline-go
 
 Windows Fonds \
 https://github.com/adam7/delugia-code/releases
