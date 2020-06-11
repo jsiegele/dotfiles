@@ -11,6 +11,7 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'frazrepo/vim-rainbow'
   Plug 'lifepillar/vim-solarized8'
+  Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "------------------
@@ -88,6 +89,7 @@ augroup END
 
 " Indentation for yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+let g:indentLine_char = '⦙'
 
 " vim can autodetect this based on $TERM (e.g. 'xterm-256color')
 " but it can be set to force 256 colors

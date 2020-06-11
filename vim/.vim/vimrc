@@ -11,6 +11,7 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'frazrepo/vim-rainbow'
   Plug 'lifepillar/vim-solarized8'
+  Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "------------------
