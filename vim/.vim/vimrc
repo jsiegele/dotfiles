@@ -71,6 +71,9 @@ set wildmenu            " enable fuzzy menu
 syntax on " turn on syntax highlighting
 set showmatch " show matching braces when text indicator is over them
 
+" indentation for yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
     autocmd!
