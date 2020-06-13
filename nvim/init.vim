@@ -1,3 +1,9 @@
+
+"----------------
+" set Language to en_US
+"----------------
+language en_US.UTF8
+
 "----------------
 " Remap <ESC> to jk 
 "----------------
