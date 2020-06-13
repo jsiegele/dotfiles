@@ -91,6 +91,11 @@ augroup END
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 let g:indentLine_char = '⦙'
 
+set listchars=eol:¬,tab:->,trail:⦙,extends:>,precedes:<,space:·
+noremap <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>
+
 " vim can autodetect this based on $TERM (e.g. 'xterm-256color')
 " but it can be set to force 256 colors
 " set t_Co=256
@@ -123,7 +128,6 @@ set nu " number lines
 set rnu " relative line numbering
 set incsearch " incremental search (as string is being typed)
 set hls " highlight search
-set listchars=tab:>>,nbsp:~ " set list to see tabs and non-breakable spaces
 set lbr " line break
 set scrolloff=5 " show lines above and below cursor (when possible)
 set showmode " show mode
