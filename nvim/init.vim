@@ -6,12 +6,13 @@ inoremap jk <ESC>
 "------------------
 " addon vim-plug
 "------------------
-call plug#begin()
+silent call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'mhinz/vim-startify'
   Plug 'frazrepo/vim-rainbow'
   Plug 'lifepillar/vim-solarized8'
   Plug 'Yggdroot/indentLine'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 "------------------
@@ -96,25 +97,14 @@ noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
 cnoremap <F5> <C-c>:set list!<CR>
 
-" vim can autodetect this based on $TERM (e.g. 'xterm-256color')
-" but it can be set to force 256 colors
-" set t_Co=256
-if has('gui_running')
-    colorscheme solarized8_high
-elseif &t_Co < 256
+if &t_Co < 256
     colorscheme default
     set nocursorline " looks bad in this mode
 else
-    set background=dark
-    let g:solarized_termcolors=256 " instead of 16 color with mapping in terminal
-    colorscheme solarized8_high
-    " customized colors
-    highlight SignColumn ctermbg=234
-    highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
-    highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
-    highlight SpellBad cterm=underline
-    " patches
-    highlight CursorLineNr cterm=NONE
+    set bg=dark
+    colorscheme gruvbox
+    set termguicolors
+    let g:gruvbox_contrast_dark="hard"
 endif
 
 filetype plugin indent on " enable file type detection
