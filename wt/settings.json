@@ -29,6 +29,12 @@
                     "fontFace": "Delugia Nerd Font"
                 },
                 {
+	       	    "guid": "{ccdf6808-b94c-404a-9556-4ac58619c095}",
+                    "hidden": false,
+                    "name": "SSH-HUB",
+		    "commandline": "wsl.exe eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa && ssh rpri265@10.1.139.1"
+                },
+                {
 
                     "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                     "name": "Windows PowerShell",
@@ -101,6 +107,8 @@
         { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
         { "command": "paste", "keys": "ctrl+v" },
         { "command": "find", "keys": "ctrl+shift+f" },
-        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }
+        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" },
+	{ "command": { "action": "splitPane", "split": "vertical", "profile": "{ccdf6808-b94c-404a-9556-4ac58619c095}" }, "keys": "ctrl+plus" },
+	{ "command": { "action": "splitPane", "split": "horizontal", "profile": "{ccdf6808-b94c-404a-9556-4ac58619c095}" }, "keys": "ctrl+-" }
         ]
 }
