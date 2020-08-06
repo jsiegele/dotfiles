@@ -21,7 +21,10 @@
                 "fontSize" : 9,
                 "historySize" : 9001,
                 "padding" : "0, 0, 0, 0",
-                "snapOnInput" : true
+                "snapOnInput" : true,
+		"cursorShape" : "bar",
+		"cursorHeight": 25,
+		"cursorColor" : "#D3869B"
             },
             "list":
                 [
