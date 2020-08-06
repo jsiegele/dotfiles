@@ -1,13 +1,18 @@
 {
         "$schema": "https://aka.ms/terminal-profiles-schema",
         "defaultProfile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
-        "copyOnSelect": false,
         "copyFormatting": false,
+	// If enabled, selections are automatically copied to your clipboard.
+	"copyOnSelect": true,
+	// unix-like
+	"wordDelimiters": " .\\()\"':,;<>~!@#$%^&*|+=[]{}~?│",
+	"disabledProfileSources": [
+    		"Windows.Terminal.Azure"
+	],
         "profiles":
         {
             "defaults":
             {
-                "acrylicOpacity" : 1.0,
                 "closeOnExit" : true,
                 "cursorColor" : "#FFFFFF",
                 "cursorShape" : "bar",
@@ -16,8 +21,7 @@
                 "fontSize" : 9,
                 "historySize" : 9001,
                 "padding" : "0, 0, 0, 0",
-                "snapOnInput" : true,
-                "useAcrylic" : true
+                "snapOnInput" : true
             },
             "list":
                 [
@@ -32,6 +36,7 @@
 	       	    "guid": "{ccdf6808-b94c-404a-9556-4ac58619c095}",
                     "hidden": false,
                     "name": "SSH-HUB",
+		    "icon": "C:/Users/rpri265/MyWork/wt/ssh-icon.png",
 		    "commandline": "wsl.exe eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa && ssh rpri265@10.1.139.1"
                 },
                 {
