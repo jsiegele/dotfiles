@@ -5,7 +5,7 @@
 	// If enabled, selections are automatically copied to your clipboard.
 	"copyOnSelect": true,
 	// unix-like
-	"wordDelimiters": " .\\()\"':,;<>~!@#$%^&*|+=[]{}~?│",
+	"wordDelimiters": " \\()\"':,;<>~!@#$%^&*|+=[]{}~?│",
 	"disabledProfileSources": [
     		"Windows.Terminal.Azure"
 	],
@@ -14,8 +14,6 @@
             "defaults":
             {
                 "closeOnExit" : true,
-                "cursorColor" : "#FFFFFF",
-                "cursorShape" : "bar",
                 "colorScheme": "Gruvbox Dark",
                 "fontFace" : "Delugia Nerd Font",
                 "fontSize" : 9,
@@ -40,7 +38,7 @@
                     "hidden": false,
                     "name": "SSH-HUB",
 		    "icon": "C:/Users/rpri265/MyWork/wt/ssh-icon.png",
-		    "commandline": "wsl.exe eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa && ssh rpri265@10.1.139.1"
+		    "commandline": "wsl.exe ~/bin/ssh-hub"
                 },
                 {
 
@@ -98,7 +96,7 @@
             "brightGreen" : "#B8BB26",
             "brightPurple" : "#D3869B",
             "brightRed" : "#FB4934",
-            "brightWhite" : "#EBDBB2",
+            "brightWhite" : "#fff4d6",
             "brightYellow" : "#FABD2F",
             "cyan" : "#689D6A",
             "foreground" : "#EBDBB2",
@@ -117,7 +115,7 @@
         { "command": "paste", "keys": "ctrl+v" },
         { "command": "find", "keys": "ctrl+shift+f" },
         { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" },
-	{ "command": { "action": "splitPane", "split": "vertical", "profile": "{ccdf6808-b94c-404a-9556-4ac58619c095}" }, "keys": "ctrl+plus" },
-	{ "command": { "action": "splitPane", "split": "horizontal", "profile": "{ccdf6808-b94c-404a-9556-4ac58619c095}" }, "keys": "ctrl+-" }
+	{ "command": { "action": "splitPane", "split": "vertical", "profile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}" }, "keys": "ctrl+plus" },
+	{ "command": { "action": "splitPane", "split": "horizontal", "profile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}" }, "keys": "ctrl+-" }
         ]
 }
