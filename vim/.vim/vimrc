@@ -19,7 +19,55 @@ silent call plug#begin()
   Plug 'lifepillar/vim-solarized8'
   Plug 'Yggdroot/indentLine'
   Plug 'morhetz/gruvbox'
+  Plug 'will133/vim-dirdiff'
+  Plug 'neoclide/coc.nvim',  {'branch': 'release'}
 call plug#end()
+
+"------------------
+" addon coc-yaml
+"------------------
+inoremap <silent><expr> <c-p> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+"--------------------
+" WSL yank support
+"--------------------
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+
+"--------------------
+" WSL yank support
+"--------------------
+map <silent> "pp :r !powershell.exe -Command Get-Clipboard<CR>
+map! <silent> <C-r>p :r !powershell.exe -Command Get-Clipboard<CR>
+
+"------------------
+" Allow the usage of nodejs <10.0.x
+"------------------
+let g:coc_disable_startup_warning = 1
 
 "------------------
 " lightline anpassungen
@@ -93,15 +141,6 @@ augroup CursorLineOnlyInActiveWindow
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
-
-" Indentation for yaml
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-let g:indentLine_char = '⦙'
-
-set listchars=eol:¬,tab:->,trail:⦙,extends:>,precedes:<,space:·
-noremap <F5> :set list!<CR>
-inoremap <F5> <C-o>:set list!<CR>
-cnoremap <F5> <C-c>:set list!<CR>
 
 if &t_Co < 256
     colorscheme default
