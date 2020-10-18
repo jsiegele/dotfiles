@@ -21,6 +21,7 @@ silent call plug#begin()
   Plug 'morhetz/gruvbox'
   Plug 'will133/vim-dirdiff'
   Plug 'neoclide/coc.nvim',  {'branch': 'release'}
+  Plug 'unblevable/quick-scope'
 call plug#end()
 
 "------------------
