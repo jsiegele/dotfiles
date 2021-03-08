@@ -22,6 +22,8 @@ silent call plug#begin()
   Plug 'will133/vim-dirdiff'
   Plug 'neoclide/coc.nvim',  {'branch': 'release'}
   Plug 'unblevable/quick-scope'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "------------------
@@ -47,6 +49,18 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
+
+"--------------------
+" replace grep with ripgrep
+"--------------------
+let s:rg = 'rg' " change this path according to your mount point
+if executable(s:rg)
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  nnoremap <Leader>g :silent lgrep<Space>
+  nnoremap <silent> [f :lprevious<CR>
+  nnoremap <silent> ]f :lnext<CR>
+endif
 
 "--------------------
 " WSL yank support
