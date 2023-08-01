@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -91,6 +91,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vi='nvim'
+alias vim='nvim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,17 +123,19 @@ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export PATH="$PATH:/mnt/c/Program\ Files/Oracle/VirtualBox:"
 export PATH="$PATH:~/bin/:"
 
-function _update_ps1() {
-  PS1="$($HOME/bin/powerline-go -error $? -newline -cwd-max-depth 4 -cwd-mode fancy)"
-}
+#function _update_ps1() {
+#  PS1="$($HOME/bin/powerline-go -error $? -newline -cwd-max-depth 4 -cwd-mode fancy)"
+#}
+#
+#if [ "$TERM" != "linux" ] && [ -f "$HOME/bin/powerline-go" ]; then
+#  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
 
-if [ "$TERM" != "linux" ] && [ -f "$HOME/bin/powerline-go" ]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m --height 50% --border'
-fi
+eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/takuya.omp.json)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source <(kubectl completion bash)
