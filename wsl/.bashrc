@@ -131,11 +131,11 @@ export PATH="$PATH:~/bin/:"
 #  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 #fi
 
-eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/takuya.omp.json)"
+[ -x "$(command -v ph-my-posh)" ] && eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/ohmyposh.json)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-source <(kubectl completion bash)
+[ -x "$(command -v kubectl)" ] && source <(kubectl completion bash)
