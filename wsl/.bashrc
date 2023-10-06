@@ -131,7 +131,7 @@ export PATH="$PATH:~/bin/:"
 #  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 #fi
 
-[ -x "$(command -v ph-my-posh)" ] && eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/ohmyposh.json)"
+[ -x "$(command -v oh-my-posh)" ] && eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/ohmyposh.json)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
