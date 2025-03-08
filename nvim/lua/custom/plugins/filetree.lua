@@ -1,17 +1,6 @@
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
-vim.api.nvim_create_augroup("neotree", {})
-vim.api.nvim_create_autocmd("VimEnter", {
-  desc = "Open Neotree automatically",
-  group = "neotree",
-  callback = function()
-    if vim.fn.argc() == 0 and not vim.fn.exists "s:std_in" then
-      vim.cmd "Neotree toggle"
-    end
-  end,
-})
-
 return {
   "nvim-neo-tree/neo-tree.nvim",
   version = "*",
@@ -21,7 +10,20 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function ()
-    require('neo-tree').setup {}
+    require("neo-tree").setup({
+      close_if_last_window = false,
+      enable_diagnostics = true,
+      enable_git_status = true,
+      popup_border_style = "rounded",
+      sort_case_insensitive = false,
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+      },
+      window = { width = 30 },
+    })
   end,
 }
 
